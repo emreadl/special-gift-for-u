@@ -100,7 +100,7 @@ button {
 
 <!-- 🎶 GİZLİ SES -->
 <audio id="music" loop>
-  <source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/30/55/2b/30552bb4-3f3f-1a6c-bf0c-8c09b7f70c36/mzaf_15150771619668825914.plus.aac.p.m4a">
+  <source src="music1.mp3" type="audio/mpeg">
 </audio>
 
 <!-- 🔐 GİRİŞ -->
@@ -218,6 +218,15 @@ function hearts() {
   }, 250);
 }
 </script>
-
+<script>
+  document.addEventListener("click", function playMusicOnce() {
+    const music = document.getElementById("bg-music");
+    if (music && music.paused) {
+      music.volume = 0.6;
+      music.play();
+      document.removeEventListener("click", playMusicOnce);
+    }
+  });
+</script>
 </body>
 </html>
